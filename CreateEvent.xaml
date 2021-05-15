@@ -1,0 +1,435 @@
+﻿<Page x:Class="AuntRosieUserInterface.Views.Event.CreateEvent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AuntRosieUserInterface.Views.Event"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Event">
+
+    <Page.Resources>
+        <Style x:Key="font_style" TargetType="TextBlock">
+
+            <Setter Property="FontFamily"
+                    Value="Fonts/Roboto-Light.ttf #Roboto"/>
+
+            <Setter Property="VerticalAlignment"
+                    Value="Center"/>
+
+            <Setter Property="HorizontalAlignment"
+                    Value="Left"/>
+
+            <Setter Property="Foreground"
+                    Value="#000"/>
+
+            <Setter Property="FontSize"
+                    Value="15"/>
+
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="219*"/>
+            <ColumnDefinition Width="581*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--// Background Color //-->
+
+        <Grid Background="Black" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="381*"/>
+                <RowDefinition Height="220*"/>
+            </Grid.RowDefinitions>
+
+            <!--// Background Image //-->
+
+            <Grid x:Name="BG" Grid.RowSpan="2" >
+
+                <Grid.Background>
+
+                    <ImageBrush x:Name="img_bg"
+                                ImageSource="/Images/Bakery Image.jpg"
+                                Stretch="Fill"/>
+
+                </Grid.Background>
+                <Frame x:Name="HomeScreen"/>
+            </Grid>
+
+            <!--// Navigation Panel //-->
+
+            <Grid   x:Name="inventoryIn_pnl"
+                    HorizontalAlignment="Left"
+                    Width="565"
+                    Background="#FFCAC4C4"
+                    Margin="225,0,0,0" Grid.RowSpan="2">
+                <TextBox Margin="270,203,71,364"/>
+            </Grid>
+
+            <StackPanel x:Name="inventoryInScreen" Margin="246,10,306,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                        >
+
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA48874" Offset="0.322"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+
+                <Label x:Name="lblChoose" 
+                       Content="Choose Event Location: " 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Top" 
+                       Margin="0,70,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="228"
+                       FontSize="20"/>
+
+
+
+                <Label x:Name="lblHelpers" 
+                       Content="Choose Helpers: " 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Margin="80,20,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="157"
+                       FontSize="20"/>
+
+
+
+
+
+                <Label x:Name="lblHelper" 
+                       Content="Helper Role: " 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Margin="116,0,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="121"
+                       FontSize="20" Height="36"/>
+
+
+
+                <Label x:Name="lblHelperList" 
+                       Content="Helper List: " 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Margin="124,48,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="113"
+                       FontSize="20"/>
+
+                <Label x:Name="lblEventName" 
+                       Content="Event Name: " 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Margin="116,60,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="121"
+                       FontSize="20"/>
+
+                <Label x:Name="lblEventDate" 
+                       Content="Event Date: " 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Margin="127,0,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="110"
+                       FontSize="20"/>
+            </StackPanel>
+
+            <StackPanel x:Name="inventoryInput" Margin="494,10,34,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
+
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA48874" Offset="0.322"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <ComboBox x:Name="cmbLocations" Height="30" Margin="10,75,52,0"
+                          BorderThickness="3"/>
+                <ComboBox x:Name="cmbHelpers" Margin="10,29,52,0"
+                          Height="30"
+                          BorderThickness="3"
+                          ></ComboBox>
+                <TextBox x:Name="txtRole" Height="30" Margin="10,5,52,0"
+                         BorderThickness="3"/>
+                <Button x:Name="btnSubmitHelper"
+                        BorderThickness="3"
+                          Content="Submit Helper"
+                          Height="30" Margin="10,8,143,0"
+                          FontSize="15"
+                        Background="White"
+                        Click="SubmitNewHelper_Click"
+                          />
+                <ListView x:Name="lstHelpersList" Height="58" Margin="10,19,52,0"
+                          BorderThickness="3"/>
+                <TextBox x:Name="txtEventName" Height="30" Margin="10,34,52,0"
+                         BorderThickness="3"/>
+                <DatePicker x:Name="txtEventDate" Height="30" Margin="10,8,52,0"
+                         BorderThickness="3" SelectedDate="2020-10-21"/>
+
+            </StackPanel>
+
+
+
+            <StackPanel x:Name="spSubmit" Margin="246,98.333,34,52" RenderTransformOrigin="0.491,0.497" Grid.Row="1">
+
+                <Button x:Name="btnCreateEvent" 
+                        Content="Add Event" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" 
+                        Height="30"
+                        Width="120" 
+                        Margin="190,5,0,0"
+                        Click="CreateEvent_Click"
+                        Background="Beige"/>
+
+            </StackPanel>
+
+            <StackPanel x:Name="sp_Header"
+                        Width="500"
+                        Margin="258,10,42,306.667" RenderTransformOrigin="0.495,0.21">
+                <Label x:Name="lblHeader"
+                       Content="Please Add New Event Information Below:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20" Height="52" Margin="34,0,10,0"
+                       BorderThickness="4" Width="456" FontWeight="Bold"/>
+            </StackPanel>
+
+            <StackPanel Margin="713,266,34,62.667">
+                <Button x:Name="btnRemoveHelper" Click="RemoveHelper_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="26" Margin="0,0,27.333,0">
+                    <Image Source="/Images/Close.png"
+                                       Stretch="Uniform" Height="20" Width="20"
+                           HorizontalAlignment="Left"
+                           />
+                </Button>
+            </StackPanel>
+
+            <!--  10-->
+            <StackPanel x:Name="sp_CreateLocation"
+                        Orientation="Horizontal"
+                        Margin="246,10,34,52" Grid.RowSpan="2"
+                         OpacityMask="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"
+                        >
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA48874" Offset="0.322"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+
+                <Button x:Name="btnCloseLocation" Click="CloseLocationCreate_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="60" Margin="460,-460,0,0">
+                    <Image Source="/Images/Close.png"
+                                       Stretch="Uniform" Height="52" Width="65"
+                           HorizontalAlignment="Left"
+                           />
+                </Button>
+
+                <Label x:Name="lblLocationHeader"
+                       Content="Please Add New Location Information Below:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20" Height="52" Margin="-510,-275,10,0"
+                       BorderThickness="4" Width="456" FontWeight="Bold"/>
+
+                <Label Content="Location Name:"
+                       Width="147"
+                       Height="35"
+                       Margin="-720,-80,0,0"
+                       FontSize="20"/>
+
+                <TextBox x:Name="txtLocationName"
+                         BorderThickness="3"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         FontSize="20"
+                         Width="192"
+                         Height="32"
+                         Margin="-350, -75,0,0"
+                    />
+
+                <Label Content="Province:"
+                       Width="90"
+                       Height="35"
+                       Margin="-660,25,0,0"
+                       FontSize="20"/>
+
+                <TextBox x:Name="txtProvince"
+                         BorderThickness="3"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         FontSize="20"
+                         Width="194"
+                         Height="34"
+                          Margin="-347,25,0,0"
+                    />
+
+                <Label Content="City:"
+                       Width="50"
+                       Height="35"
+                       Margin="-615,126,0,0"
+                       FontSize="20"/>
+
+                <TextBox x:Name="txtCity"
+                         BorderThickness="3"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         FontSize="20"
+                         Width="194"
+                         Height="34"
+                         Margin="-345,125,0,0"
+                    />
+
+                <Label Content="Street:"
+                       Width="70"
+                       Height="35"
+                       Margin="-630,215,0,0"
+                       FontSize="20"/>
+
+                <TextBox x:Name="txtStreet"
+                         BorderThickness="3"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         FontSize="20"
+                         Width="194"
+                         Height="34"
+                         Margin="-345,225,0,0"
+                    />
+
+                <Button x:Name="btnCreateNewLocation"
+                        Content="Create Location"
+                        Height="50"
+                        Width="120"
+                        Margin="-530,400,0,0"
+                        Click="CreateNewLocation_Click"
+                        Background="Beige"/>
+            </StackPanel>
+
+            <!--  10-->
+            <StackPanel x:Name="sp_CreateHelper"
+                        Orientation="Horizontal"
+                        Margin="246, 10,34,52" Grid.RowSpan="2"
+                         OpacityMask="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"
+                        >
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA48874" Offset="0.322"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+
+                <Button x:Name="btnCloseHelperCreation" Click="CloseHelperCreate_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="60" Margin="460,-460,0,0">
+                    <Image Source="/Images/Close.png"
+                                       Stretch="Uniform" Height="52" Width="65"
+                           HorizontalAlignment="Left"
+                           />
+                </Button>
+
+                <Label x:Name="lblHelperHeader"
+                       Content="Please Add New Helper Information Below:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20" Height="52" Margin="-490,-275,10,0"
+                       BorderThickness="4" Width="456" FontWeight="Bold"/>
+
+                <Label Content="Helper Name:"
+                       Width="136"
+                       Height="35"
+                       Margin="-720,-55,0,0"
+                       FontSize="20"/>
+
+                <TextBox x:Name="txtHelperName"
+                         BorderThickness="3"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         FontSize="20"
+                         Width="192"
+                         Height="34"
+                         Margin="-350,-50,0,0"
+                    />
+
+                <Label Content="Phone Number:"
+                       Width="161"
+                       Height="35"
+                       Margin="-729,50,0,0"
+                       FontSize="20"/>
+
+                <TextBox x:Name="txtHelperPhone"
+                         BorderThickness="3"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         FontSize="20"
+                         Width="193"
+                         Height="34"
+                         Margin="-347,50,0,0"
+                    />
+
+                <Label Content="Address:"
+                       Width="89"
+                       Height="35"
+                       Margin="-670,140,0,0"
+                       FontSize="20"/>
+
+                <TextBox x:Name="txtHelperAddress"
+                         BorderThickness="3"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         FontSize="20"
+                         Width="194"
+                         Height="34"
+                         Margin="-345,150,0,0"
+                    />
+
+                <Button x:Name="btnCreateHelper"
+                        Content="Create Helper"
+                        Height="50"
+                        Margin="-540,350,0,0"
+                        Click="CreateNewHelper_Click"
+                        Background="Beige" Width="108"/>
+            </StackPanel>
+
+            <StackPanel x:Name="sp_CreationPanel"
+                        Height="40"
+                        Margin="250,167,0,5" Grid.Row="1">
+
+                <Button x:Name="btnNewLocation"
+                        BorderThickness="3"
+                          Content="New Location"
+                          Height="30" Margin="0,0,0,0"
+                          Width="106"
+                          FontSize="15"
+                        Background="#F75D59"
+                        HorizontalAlignment="Left"
+                        Click="NewLocation_Click"
+                          />
+            </StackPanel>
+
+            <StackPanel x:Name="sp_NewHelper"
+                        Height="40"
+                        Margin="370,159,316,-3" Grid.Row="1">
+
+                <Button x:Name="btnNewHelper"
+                        BorderThickness="3"
+                          Content="New Helper"
+                        Width="100"
+                          Height="30" Margin="0,0,11,0"
+                          FontSize="15"
+                        Background="#F75D59"
+                        Click="OpenNewHelper_Click"
+                          />
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Page>

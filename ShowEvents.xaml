@@ -1,0 +1,91 @@
+﻿<Page x:Class="AuntRosieUserInterface.Views.Event.ShowEvents"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AuntRosieUserInterface.Views.Event"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Event">
+
+    <Page.Resources>
+        <Style x:Key="font_style" TargetType="TextBlock">
+
+            <Setter Property="FontFamily"
+                    Value="Fonts/Roboto-Light.ttf #Roboto"/>
+
+            <Setter Property="VerticalAlignment"
+                    Value="Center"/>
+
+            <Setter Property="HorizontalAlignment"
+                    Value="Left"/>
+
+            <Setter Property="Foreground"
+                    Value="#000"/>
+
+            <Setter Property="FontSize"
+                    Value="15"/>
+
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="219*"/>
+            <ColumnDefinition Width="581*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--// Background Color //-->
+
+        <Grid Background="Black" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="381*"/>
+                <RowDefinition Height="220*"/>
+            </Grid.RowDefinitions>
+
+            <!--// Background Image //-->
+
+            <Grid x:Name="BG" Grid.RowSpan="2" >
+
+                <Grid.Background>
+
+                    <ImageBrush x:Name="img_bg"
+                                ImageSource="/Images/Bakery Image.jpg"
+                                Stretch="Fill"/>
+
+                </Grid.Background>
+                <Frame x:Name="HomeScreen"/>
+            </Grid>
+
+            <!--// Navigation Panel //-->
+
+            <Grid   x:Name="inventoryIn_pnl"
+                    HorizontalAlignment="Left"
+                    Width="565"
+                    Background="#FFCAC4C4"
+                    Margin="225,0,0,0" Grid.RowSpan="2"/>
+
+            <StackPanel x:Name="Labels" Margin="238,10,22,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                        >
+
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA48874" Offset="0.322"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+
+                <Label x:Name="lblHeader"
+                       Content="UPCOMING EVENTS"
+                       FontSize="50" Margin="44,10,0,0"/>
+
+                <ListBox x:Name="lstEvents" Height="200"
+                         Margin="0,20,0,0"/>
+            </StackPanel>
+
+            <!-- Inputs for new location -->
+
+        </Grid>
+
+    </Grid>
+</Page>

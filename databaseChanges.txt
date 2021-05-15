@@ -1,0 +1,6 @@
+Supplier Table
+Phone size 14
+
+InventoryIngredent :
+SupplierId is PK
+PurchaseDate date  insted of dateatime
